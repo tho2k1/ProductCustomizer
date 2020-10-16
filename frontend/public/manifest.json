@@ -1,0 +1,9 @@
+{
+  "short_name": "ProductCustomizer",
+  "name": "App enablling product customization",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
