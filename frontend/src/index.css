@@ -1,1 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: inherit;
+    box-sizing: border-box;
+}
 
+ul {
+    list-style: none;
+}
+
+body {
+    font-family: Calibri, sans-serif;
+    font-size: 16px;
+}
+
+form {
+    margin: 2rem;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 2rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin: .5rem 0;
+}
+
+.filtersList {
+    display: flex;
+    flex-flow: row wrap;
+    margin: .5rem 0;
+}
+
+label {
+    padding: .5rem 1rem;
+    margin: .5rem;
+    border: 2px solid #000;
+    border-radius: 5px;
+    display: block;
+    cursor: pointer;
+}
+
+label:hover {
+    background-color: #303030;
+    color: #fafafa;
+}
+
+.radio:checked + label {
+    background-color: #000;
+    color: #fafafa;
+}
+
+.radio {
+    display: none;
+}
