@@ -1,13 +1,17 @@
 import React from 'react';
 
 import Filters from "../Filters";
+import Summary from "../Summary";
 
 const App = () => {
   return (
-    <div className="App">
+    <main className="main">
       <h1>Customize your car</h1>
-      <Filters />  
-    </div>
+      <div className="container">
+        <Filters />  
+        <Summary />
+      </div>
+    </main>
   );
 }
 

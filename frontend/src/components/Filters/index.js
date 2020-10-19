@@ -6,7 +6,7 @@ import Options from "./Options";
 
 const Filters = () => {
     return (
-        <form>
+        <form className="panel">
             {Object.entries(data).map( (entryName, index) => (
                 <div key={`${entryName}-${index}`}>
                     <h2>{entryName[0]}</h2>

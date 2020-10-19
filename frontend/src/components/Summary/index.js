@@ -2,9 +2,8 @@ import React from 'react';
 
 const Summary = () => {
     return (
-        <div>
+        <div className="panel">
             <h2>Summary</h2>
-            <p>Image</p>
             <ul>
                 <li><span>Model</span> <span>POR2000</span></li>
                 <li><span>Engine</span> <span>the bestest</span></li>
