@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
+import React  from 'react';
+import { useDispatch } from "react-redux";
+import { changeOption } from "../../actions";
 
 import Filters from "../Filters";
 import Summary from "../Summary";
 
 const App = () => {
-  const [ models, setModels ] = useState("")
+  const dispatch = useDispatch();
 
   const handleOptionChange = event => {
-    setModels(event.target.value)
+    const targetName = event.target.name;
+    const targetValue = event.target.value;
+    dispatch(changeOption(targetName, targetValue)) 
   }
 
-  console.log(models)
   return (
     <main className="main">
       <h1>Customize your car</h1>
       <div className="container">
         <Filters handleOptionChange={handleOptionChange}/>  
-        <Summary models={models}/>
+        <Summary />
       </div>
     </main>
   );
