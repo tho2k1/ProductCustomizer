@@ -47,7 +47,6 @@ export function fetchData() {
             const response = await fetch(endpoint.url);
             const res = await handleErrors(response);
             const json = await res.json();
-            console.log(json)
             dispatch(fetchDataSuccess(json, endpoint.dataName));
             return json;
         } catch (error) {
