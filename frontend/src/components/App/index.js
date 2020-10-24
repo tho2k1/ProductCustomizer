@@ -1,12 +1,16 @@
-import React  from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from "react-redux";
-import { changeOption } from "../../actions";
+import { changeOption, fetchData } from "../../actions";
 
 import Filters from "../Filters";
 import Summary from "../Summary";
 
 const App = () => {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchData())
+  }, [])
 
   const handleOptionChange = event => {
     const targetName = event.target.name;
@@ -19,7 +23,7 @@ const App = () => {
       <h1>Customize your car</h1>
       <div className="container">
         <Filters handleOptionChange={handleOptionChange}/>  
-        <Summary />
+        {/* <Summary /> */}
       </div>
     </main>
   );

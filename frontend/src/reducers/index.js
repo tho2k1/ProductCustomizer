@@ -1,10 +1,9 @@
-const reducer = (state = {}, action) => {
-    switch(action.type) {
-        case "CHANGED_OPTION":
-            return {...state, ...action.payload};
-        default:
-            return state;
-    }
-}
+import { combineReducers } from 'redux';
+import optionChange from "./optionChange";
+import fetchData from "./fetchData";
 
-export default reducer;
+export default combineReducers({
+    optionChange,
+    fetchData 
+})
+

@@ -60,6 +60,12 @@ label:hover {
     color: #fafafa;
 }
 
+.radio:disabled + label {
+    background-color: #909090;
+    color: #000;
+    cursor: not-allowed;
+}
+
 .radio {
     display: none;
 }

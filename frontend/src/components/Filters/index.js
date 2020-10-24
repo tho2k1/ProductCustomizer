@@ -1,22 +1,30 @@
 import React from 'react';
-
-import { data } from "../../data";
+import { useSelector } from "react-redux";
 
 import Options from "./Options";
 
 const Filters = ({ handleOptionChange }) => {
+    const dataLoaded = useSelector(state => state.fetchData.loaded)
+    const data = useSelector(state => state.fetchData.data)
+
     return (
-        <form className="panel">
-            {Object.entries(data).map( (entryName, index) => (
-                <div key={`${entryName}-${index}`}>
-                    <h2>{entryName[0]}</h2>
-                    <Options 
-                        optionsData={entryName}
-                        handleOptionChange={handleOptionChange}
-                    />
-                </div>
-            ))}
-        </form>
+        <>
+            { dataLoaded ?
+                <form className="panel">
+                    {Object.entries(data).map( optionType => (
+                        <div key={`${optionType[0]}`}>
+                            <h2>{optionType[0]}</h2>
+                            <Options 
+                                optionType={optionType}
+                                handleOptionChange={handleOptionChange}
+                            />
+                        </div>
+                    ))}
+                </form>
+                :
+                <p>Loading data...</p>
+            }
+        </>
     )
 }
 

@@ -1,24 +1,28 @@
 import React from "react";
 
-const Options = ( { optionsData, handleOptionChange } ) => {
-    const optionName = optionsData[0];
-    const optionsList = optionsData[1];
+const Options = ( { optionType, handleOptionChange } ) => {
+    const optionTypeName = optionType[0];
+    const optionsList = optionType[1];
 
     return (
         <ul className="filtersList">
-            {optionsList.map((entry, index) => (
-                <li key={`${entry}-${index}`}>
-                    <input 
-                        type="radio" 
-                        name={optionName} 
-                        id={entry} 
-                        value={entry} 
-                        className="radio"
-                        onChange={handleOptionChange}
-                    />
-                    <label htmlFor={entry}>{entry}</label>
-                </li>) 
-            )}              
+            {optionsList.map( option => {
+                const { name: optName } = option; 
+
+                return (
+                    <li key={`${optName}`}>
+                        <input 
+                            type="radio" 
+                            name={optionTypeName} 
+                            id={optName} 
+                            value={optName} 
+                            className="radio"
+                            onChange={handleOptionChange}
+                        />
+                        <label htmlFor={optName}>{optName}</label>
+                    </li>)
+                }
+            )}            
         </ul>
     )
 }
