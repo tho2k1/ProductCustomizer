@@ -7,7 +7,7 @@ const Options = ( { optionType, handleOptionChange } ) => {
     return (
         <ul className="filtersList">
             {optionsList.map( option => {
-                const { name: optName } = option; 
+                const { name: optName, isAvailable } = option; 
 
                 return (
                     <li key={`${optName}`}>
@@ -18,6 +18,7 @@ const Options = ( { optionType, handleOptionChange } ) => {
                             value={optName} 
                             className="radio"
                             onChange={handleOptionChange}
+                            disabled={!isAvailable}
                         />
                         <label htmlFor={optName}>{optName}</label>
                     </li>)

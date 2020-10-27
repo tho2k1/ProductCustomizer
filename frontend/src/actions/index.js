@@ -1,24 +1,24 @@
-// import { data } from "../data";
-
 export const changeOption = (optionName, optionValue) => {
-    // const key = () => {
-    //     switch(optionName) {
-    //         case 'models': return 'engines'
-    //         case 'engines': return 'gearboxes'
-    //         default: return null
-    //     }
-    // }
-
-    return {
-        type: "CHANGED_OPTION",
-        payload: { 
-            [optionName]: optionValue,
-            // [`available${key()}`]: data.models[key()],
-         }
-    }
+  return {
+    type: "CHANGED_OPTION",
+    payload: { 
+        [optionName]: optionValue,
+      }
+  }
 }
 
-export function fetchData() {
+export const changeAvailability = (data, addons, availableAddons) => {
+  const allAddons = data[addons].map(addon => addon.name)
+  const unavailableAddons = allAddons.filter(addon => !availableAddons.includes(addon))
+  const unavailableAddonsIndexes = unavailableAddons.map(addon => allAddons.indexOf(addon))
+
+  return {
+    type: "CHANGED_AVAILABILITY",
+    payload: { unavailableAddonsIndexes, addons }
+  }
+}
+
+export const fetchData = () => {
   const endpoints = [
     {
       dataName: "models",
@@ -58,7 +58,7 @@ export function fetchData() {
 }
   
   // Handle HTTP errors since fetch won't
-  function handleErrors(response) {
+  const handleErrors = response => {
     if (!response.ok) {
       throw Error(response.statusText);
     }

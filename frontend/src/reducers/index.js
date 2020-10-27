@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import optionChange from "./optionChange";
-import fetchData from "./fetchData";
+import optionChangeReducer from "./optionChange";
+import dataReducer from "./fetchData";
 
 export default combineReducers({
-    optionChange,
-    fetchData 
+    optionChangeReducer,
+    dataReducer 
 })
 
