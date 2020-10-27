@@ -22,17 +22,29 @@ body {
 }
 
 .panel {
-    margin: 2rem;
+    margin: 1rem;
+    padding: 2% 5%;
+    min-width: 300px;
+    border: 2px solid black;
+    border-radius: 15px;
 }
 
 h1 {
     font-size: 2rem;
     margin: 2rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.4rem;
+    margin: 1rem 0;
+    text-align: center;
 }
 
 h2 {
     font-size: 1.2rem;
     margin: .5rem 0;
+    text-align: center;
 }
 
 .filtersList {
@@ -61,8 +73,10 @@ label:hover {
 }
 
 .radio:disabled + label {
-    background-color: #909090;
-    color: #000;
+    background-color:#c9c9c9;
+    color: #787777;
+    border: 2px solid #c9c9c9;
+    opacity: .8;
     cursor: not-allowed;
 }
 

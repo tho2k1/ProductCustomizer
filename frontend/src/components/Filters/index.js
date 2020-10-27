@@ -5,17 +5,21 @@ import { changeOption, changeAvailability } from "../../actions";
 import sort from "../../helpers/sort";
 import getAvailableAddons from "../../helpers/getAvailableAddons";
 import assignAddons from "../../helpers/assignAddons";
+import getPrice from "../../helpers/getPrice";
 import Options from "./Options";
 
 const Filters = () => {
     const dispatch = useDispatch();
-    const data = useSelector(state => state.dataReducer.data);
+    const data = useSelector(state => state.fetchedData.data);
 
     const handleOptionChange = event => {
-        const targetName = event.target.name;
-        const targetValue = event.target.value;
+        const { name: targetName, value: targetValue } = event.target;
+
+        // const price = getPrice(data[targetName], targetValue)
+
         const addons = assignAddons(targetName);
         const availableAddons = getAvailableAddons(data, targetName, targetValue, addons);
+
         dispatch(changeOption(targetName, targetValue)) 
         if(addons) dispatch(changeAvailability(data, addons, availableAddons)) 
       }
@@ -24,16 +28,17 @@ const Filters = () => {
     const sortedData = Object.entries(data).length === 4 ? sort(data) : null;
 
     return (
-        <>
+        <div className="panel">
+            <h2>Options</h2>
             { sortedData ?
-                <form className="panel">
+                <form>
                     {sortedData.map( optionTypeObj => {       
                         //get needed info from objects  
                         const optionType = Object.entries(optionTypeObj)[0]
 
                         return (
                             <div key={`${optionType[0]}`}>
-                                <h2>{optionType[0]}</h2>
+                                <h3>{optionType[0]}</h3>
                                 <Options 
                                     optionType={optionType}
                                     handleOptionChange={handleOptionChange}
@@ -45,7 +50,7 @@ const Filters = () => {
                 :
                 <p>Loading data...</p>
             }
-        </>
+        </div>
     )
 }
 
