@@ -18,7 +18,7 @@ body {
 
 .container {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row wrap-reverse;
     justify-content: space-evenly;
 }
 
@@ -83,4 +83,19 @@ label:hover {
 
 .radio {
     display: none;
+}
+
+.summary {
+    font-size: 1.2rem;
+}
+
+.summary li {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.summary li:last-of-type {
+    margin-top: 1rem;
+    font-size: 1.4rem;
 }

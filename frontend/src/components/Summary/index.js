@@ -18,12 +18,12 @@ const Summary = () => {
         <div className="panel">
             <h2>Summary</h2>
             <CarImg color={color} model={models}/>
-            <ul>
+            <ul className="summary">
                 <li><span>Model:</span> <span>{models || "---"}</span></li>
                 <li><span>Engine:</span> <span>{engines || "---"}</span></li>
                 <li><span>Gearbox:</span> <span>{gearboxes || "---"}</span></li>
                 <li><span>Color:</span> <span>{colors || "---"}</span></li>
-                <li><span>Price:</span> <span>{price}</span> $</li>
+                <li><span>Price:</span> <span>{price} $</span></li>
             </ul>
         </div>
     )
