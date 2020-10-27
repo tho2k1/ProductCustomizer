@@ -3,6 +3,7 @@ import CarPro from "../Cars/CarPro";
 import CarUber from "../Cars/CarUber";
 import CarStandard from "../Cars/CarStandard";
 import CarWk from "../Cars/CarWk";
+import QuestionMark from "../Cars/QuestionMark";
 
 const CarImg = ({color, model}) => {
     const carImg = () => {
@@ -11,7 +12,7 @@ const CarImg = ({color, model}) => {
             case "UBER RS2": return <CarUber color={color}/>
             case "STANDARD": return <CarStandard color={color}/>
             case "WK": return <CarWk color={color}/>
-            default: return <CarPro color={color}/>
+            default: return <QuestionMark color={color}/>
         }
     }
 

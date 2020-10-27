@@ -12,7 +12,6 @@ const Summary = () => {
 
     const price = getTotalPrice(data, selected)
     const color = getColor(data, selected.colors)
-    console.log(color)
 
     return (
         <div className="panel">
