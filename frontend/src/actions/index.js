@@ -1,9 +1,9 @@
+import { ENDPOINTS } from "../constants";
+
 export const changeOption = (optionName, optionValue) => {
   return {
     type: "CHANGED_OPTION",
-    payload: { 
-        [optionName]: optionValue,
-      }
+    payload: { [optionName]: optionValue }
   }
 }
 
@@ -18,31 +18,13 @@ export const changeAvailability = (data, addons, availableAddons) => {
   }
 }
 
+// data fetching
 export const fetchData = () => {
-  const endpoints = [
-    {
-      dataName: "models",
-      url: "http://localhost:4000/api/models",
-    },
-    {
-      dataName: "engines",
-      url: "http://localhost:4000/api/engines",
-    },
-    {
-      dataName: "gearboxes",
-      url: "http://localhost:4000/api/gearboxes",
-    },
-    {
-      dataName: "colors",
-      url: "http://localhost:4000/api/colors",
-    }
-  ]
-
-
   return async dispatch => {
+
     dispatch(fetchDataBegin());
 
-    Promise.all(endpoints.map(async endpoint => {
+    Promise.all(ENDPOINTS.map(async endpoint => {
       try {
             const response = await fetch(endpoint.url);
             const res = await handleErrors(response);
@@ -52,7 +34,6 @@ export const fetchData = () => {
         } catch (error) {
             return dispatch(fetchDataFailure(error));
         }
-
     }))
   };
 }

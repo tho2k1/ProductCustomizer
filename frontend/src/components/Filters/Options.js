@@ -4,7 +4,6 @@ const Options = ( { optionType, handleOptionChange } ) => {
     const optionTypeName = optionType[0];
     const optionsList = optionType[1];
     
-    console.log(optionsList)
     return (
         <ul className="filtersList">
             {optionsList.map( option => {
@@ -22,7 +21,7 @@ const Options = ( { optionType, handleOptionChange } ) => {
                         />
                         <label 
                             htmlFor={optName}
-                            style = {optionTypeName === "colors" ? { borderLeft: `1rem solid ${value}`, padding: ".4rem .6rem"} : {}}
+                            style = {optionTypeName === "colors" ? { border: `2px solid ${value}`, borderLeft: `1.2rem solid ${value}`, padding: ".4rem .6rem"} : {}}
                         >{optName}</label>
                     </li>)
                 }

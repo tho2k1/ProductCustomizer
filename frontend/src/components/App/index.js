@@ -17,7 +17,7 @@ const App = () => {
       <h1>Customize your car</h1>
       <div className="container">
         <Filters />  
-        {/* <Summary /> */}
+        <Summary />
       </div>
     </main>
   );

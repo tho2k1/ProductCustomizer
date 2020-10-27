@@ -5,7 +5,6 @@ import { changeOption, changeAvailability } from "../../actions";
 import sort from "../../helpers/sort";
 import getAvailableAddons from "../../helpers/getAvailableAddons";
 import assignAddons from "../../helpers/assignAddons";
-import getPrice from "../../helpers/getPrice";
 import Options from "./Options";
 
 const Filters = () => {
@@ -14,17 +13,16 @@ const Filters = () => {
 
     const handleOptionChange = event => {
         const { name: targetName, value: targetValue } = event.target;
-
-        // const price = getPrice(data[targetName], targetValue)
-
+        
         const addons = assignAddons(targetName);
         const availableAddons = getAvailableAddons(data, targetName, targetValue, addons);
-
+        
         dispatch(changeOption(targetName, targetValue)) 
         if(addons) dispatch(changeAvailability(data, addons, availableAddons)) 
-      }
+    }
+    
 
-    // sort data only after everything is loaded
+    // sort data after everything is loaded
     const sortedData = Object.entries(data).length === 4 ? sort(data) : null;
 
     return (
