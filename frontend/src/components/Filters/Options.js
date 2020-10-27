@@ -7,7 +7,7 @@ const Options = ( { optionType, handleOptionChange } ) => {
     return (
         <ul className="filtersList">
             {optionsList.map( option => {
-                const { name: optName, isAvailable, value } = option; 
+                const { name: optName, isAvailable, value, price } = option; 
                 return (
                     <li key={`${optName}`}>
                         <input 
@@ -21,6 +21,7 @@ const Options = ( { optionType, handleOptionChange } ) => {
                         />
                         <label 
                             htmlFor={optName}
+                            title={`price: ${price} $`}
                             style = {optionTypeName === "colors" ? { border: `2px solid ${value}`, borderLeft: `1.2rem solid ${value}`, padding: ".4rem .6rem"} : {}}
                         >{optName}</label>
                     </li>)
